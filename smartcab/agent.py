@@ -24,6 +24,7 @@ class LearningAgent(Agent):
         ###########
         # Set any additional class parameters as needed
         self.no_trials=0
+        self.gamma = 0.9
 
     def reset(self, destination=None, testing=False):
         """ The reset function is called at the beginning of each trial.
@@ -177,7 +178,10 @@ class LearningAgent(Agent):
         if self.learning == True:
             new_value = reward
             old_value = self.Q[state][action] 
+            ###no discount
             self.Q[state][action] = self.alpha*new_value + (1-self.alpha)*old_value
+            ###discounted future balue
+            # self.Q[state][action] = math.pow(self.gamma, self.no_trials)*self.alpha*new_value + (1-self.alpha)*old_value
         return
 
 
