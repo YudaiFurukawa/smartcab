@@ -57,7 +57,7 @@ class LearningAgent(Agent):
         else:
             self.no_trials +=1
             #decay1()
-            decay2(0.99)    
+            decay2(0.999)    
         ###delete this line later
         # print "these are no_trials and self.epsilon", self.no_trials, self.epsilon
         ###
@@ -74,7 +74,7 @@ class LearningAgent(Agent):
         deadline = self.env.get_deadline(self)  # Remaining deadline
 
         ########### 
-        ## TO DO ##
+        ## TO DO #
         ###########
         # Set 'state' as a tuple of relevant data for the agent
         # When learning, check if the state is in the Q-table
@@ -239,7 +239,7 @@ def run():
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test =50, tolerance = 0.00001)
+    sim.run(n_test =100, tolerance = 0.0001)
 
 
 if __name__ == '__main__':
