@@ -57,7 +57,7 @@ class LearningAgent(Agent):
         else:
             self.no_trials +=1
             #decay1()
-            decay2(0.999)    
+            decay2(0.99)    
         ###delete this line later
         # print "these are no_trials and self.epsilon", self.no_trials, self.epsilon
         ###
@@ -180,8 +180,6 @@ class LearningAgent(Agent):
             old_value = self.Q[state][action] 
             ###no discount
             self.Q[state][action] = self.alpha*new_value + (1-self.alpha)*old_value
-            ###discounted future balue
-            # self.Q[state][action] = math.pow(self.gamma, self.no_trials)*self.alpha*new_value + (1-self.alpha)*old_value
         return
 
 
@@ -239,7 +237,7 @@ def run():
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test =100, tolerance = 0.0001)
+    sim.run(n_test =100, tolerance = 0.00001)
 
 
 if __name__ == '__main__':
