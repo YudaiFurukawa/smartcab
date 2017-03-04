@@ -103,9 +103,6 @@ class LearningAgent(Agent):
         #     if actionvalue > maxQ:
         #         maxQ = actionvalue
         
-        ###test
-        # print "maxQ", maxQ
-        ###
         return maxQ 
 
 
