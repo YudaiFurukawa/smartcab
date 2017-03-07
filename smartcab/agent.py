@@ -81,9 +81,7 @@ class LearningAgent(Agent):
         #   If it is not, create a dictionary in the Q-table for the current 'state'
         #   For each action, set the Q-value for the state-action pair to 0
         
-        state = waypoint, inputs['light'], inputs['left'],inputs['right'],inputs['oncoming']
-        if not state in self.Q:
-            self.Q[state]={key: 0 for key in self.valid_actions}
+        state = waypoint, inputs['light'], inputs['left'],inputs['oncoming']
         return state
 
 
@@ -234,7 +232,7 @@ def run():
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test =100, tolerance = 0.00001)
+    sim.run(n_test =100, tolerance = 0.001)
 
 
 if __name__ == '__main__':
