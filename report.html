@@ -13686,10 +13686,15 @@ I did not choose 'deadline' although it encourages the agent to reach the destin
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>
-The size of the state space would be 96 as the number of possible output would be 3 for waypoint, 2 for lights and 4 for left and oncoming respectively.
-I omitted 'deadline' as it will take too many trials to train if I include this feature as a part of a state and it is doubtful the agent would ever learn the proper action.
-I omitted 'right' because the right of way rules in the US allows the agent to make the right decision without this feature.
-The agent can learn a policy for each possible state within a reasonale number of training trials as the the size of the state space is on;y 96 and not that big.</p>
+The size of the state space would be 96 as the number of possible output would be 3 for waypoint, 2 for lights and 4 for left and oncoming respectively.</p>
+<ul>
+<li>'waypoint': I included waypoint as it is necessary to differenciate the states where the agent is taking an action following the waypoint and not following the waypoint since the reward is higher if the agent is following the waypoint.</li>
+<li>'light': I included light as it is necessary to differenciate the states where the agent is following the light and not following the light since the agent is penalized if it is not following the light.</li>
+<li>'oncoming' and 'left': I included oncoming and left as it is necessary to differenciate states where the agent gets involved in an accident and not. In order to differenciate these states the agent needs to be informed of how cars around the agent are doing and thus I included the features.</li>
+<li>'right': I omitted 'right' because the right of way rules in the US allows the agent to make the right decision without this feature. When the light is green the agent can ignore the car on the right as it is not going to be in it's way and when the light is red the agent only need to be informed of what the car on the left is doing to make the right decision.</li>
+<li>'deadline': I also omitted 'deadline' as it will take too many trials to train if this feature is included and it is doubtful the agent would ever learn the proper action.</li>
+</ul>
+<p>The agent can learn a policy for each possible state within a reasonale number of training trials as the the size of the state space is on;y 96 and not that big.</p>
 
 </div>
 </div>
